@@ -2,7 +2,7 @@
 
 # functions
 do_start () {
-	python photobooth-button.py >log/out.log 2>>log/out.log &
+	sudo python photobooth-button.py >log/out.log 2>>log/out.log &
 	echo $! > log/pid.log
 	echo PID:
 	cat log/pid.log
@@ -10,7 +10,7 @@ do_start () {
 
 do_stop() {
 	PID=`cat log/pid.log`
-	kill $PID
+	sudo kill $PID >/dev/null
 	rm -f log/pid.log
 }
 

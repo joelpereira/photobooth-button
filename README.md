@@ -9,5 +9,5 @@ sudo setup.py install
 
 Start:
 ```
-sudo python start-button.py
+./start.sh restart
 ```

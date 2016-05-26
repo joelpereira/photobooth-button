@@ -3,6 +3,7 @@
 import uinput
 import time
 import sys
+import signal
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 
@@ -12,6 +13,12 @@ def need_to_pulse(start, max):
     return True
   else:
     return False
+
+# catch the 'kill <process>' (SIGTERM) signal
+def signal_term_handler(signal, frame):
+  GPIO.cleanup()
+  sys.exit(0)
+signal.signal(signal.SIGTERM, signal_term_handler)
 
 
 # SETUP
