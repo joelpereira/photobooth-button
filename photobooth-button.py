@@ -25,7 +25,7 @@ signal.signal(signal.SIGTERM, signal_term_handler)
 buttonPin	= 21
 LED		= 20
 led_status	= GPIO.HIGH
-led_pulse_secs	= 1
+led_pulse_secs	= 0.5
 prev_input	= 0
 pulse_start	= time.time()
 GPIO.setup(buttonPin, GPIO.IN)
