@@ -2,16 +2,16 @@
 
 # functions
 do_start () {
-	coffee app.coffee >out.log 2>>out.log &
-	echo $! > out.log
+	python photobooth-button.py >log/out.log 2>>log/out.log &
+	echo $! > log/pid.log
 	echo PID:
-	cat pid.log
+	cat log/pid.log
 }
 
 do_stop() {
-	PID=`cat pid.log`
+	PID=`cat log/pid.log`
 	kill $PID
-	rm -f pid.log
+	rm -f log/pid.log
 }
 
 
