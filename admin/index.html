@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>PhotoBooth Remote Control</title>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Joel Pereira">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" type="text/css" />
+
+	<!-- jQuery -->
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/custom.js"></script>
+
+</head>
+<body>
+
+<!--  page-one  -->
+<div data-role="page" id="page-one">
+	<!-- Page Content -->
+	<div data-role="main" class="ui-content" style="text-align:center">
+		<h1>PhotoBooth Admin Web Console</h1>
+		<form>
+			<label for="photobooth-select">Photo Booth Software Status</label>
+			<select id="photobooth-switch" name="photobooth-select" data-role="flipswitch" disabled="disabled" onchange="serviceControl('photobooth', this.value);">
+				<option>Off</option>
+				<option>On</option>
+			</select>
+		</form>
+		<form>
+			<label for="button-select">Button Status</label>
+			<select id="button-switch" name="button-select" data-role="flipswitch" disabled="disabled" onchange="serviceControl('button', this.value);">
+				<option>Off</option>
+				<option>On</option>
+			</select>
+		</form>
+		<form>
+			<label for="gphoto-select">gphoto-webui Status</label>
+			<select id="gphoto-switch" name="gphoto-select" data-role="flipswitch" disabled="disabled" onchange="serviceControl('gphoto', this.value);">
+				<option>Off</option>
+				<option>On</option>
+			</select>
+		</form>
+	</div>
+</div>
+<!-- /#page-take-picture -->
+
+
+
+<!-- Dialog to clear temp files -->
+<div data-role="page" data-dialog="true" id="dialog-clearTempFiles">
+	<div data-role="header">
+		<h2>Clear Temp Files?</h2>
+	</div>
+	<div data-role="main" class="ui-content">
+		<a href="#page-three" class="ui-btn" onclick="clearTempFiles();">Yes</a>
+		<a href="#page-three" class="ui-btn" onclick="">No</a>
+	</div>
+</div>
+<!-- /#page-content-wrapper -->
+</body>
+</html>

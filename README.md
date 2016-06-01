@@ -1,13 +1,23 @@
-Setup:
+Initial Setup:
 ```
-sudo modprobe -i uinput
-git clone https://github.com/tuomasjjrasanen/python-uinput
-cd python-uinput
-pyton setup.py build
-sudo setup.py install
+git clone https://github.com/joelpereira/photobooth-button; cd photobooth-button
+sudo apt-get install xdotool
+make
 ```
 
 Start:
 ```
-./start.sh restart
+./admin-console.sh restart
 ```
+
+It will start the button code along with a php web server for managing the whole thing.
+```
+http://<server_name>:8001/
+```
+
+
+To just start the button control:
+```
+./button
+```
+
