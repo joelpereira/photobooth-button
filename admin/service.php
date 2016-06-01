@@ -70,7 +70,7 @@ try {
 			if ($name == "gphoto") {
 				$grep = "grep php5 | grep 8000";
 			} elseif ($name == "button") {
-				$grep = "grep button.py";
+				$grep = "grep 'sudo ./button'";
 			} elseif ($name == "photobooth") {
 				$grep = "grep php5 | grep 8001 | grep admin";
 			}

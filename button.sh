@@ -5,7 +5,7 @@ BUTTON_PID=log/button_pid.log
 
 # functions
 do_start() {
-	sudo ./button 1>$BUTTON_LOG 2>&1 &
+	nohup sh sudo ./button 1>$BUTTON_LOG 2>&1 &
 	echo $! > $BUTTON_PID
 	echo "Started Button Script"
 }
