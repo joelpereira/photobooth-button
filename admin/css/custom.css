@@ -1,21 +1,16 @@
-.thumb-container {
-	margin:			0px;
-	padding:		0px;
+.divGroup {
+	border-radius:	15px;
+	background:	#FFFFFF;
+	border:		1px solid #000000;
+	padding:	10px;
+	margin:		20px;
 }
-.image-thumb {
-	display:		inline-block;
-	border-radius:		3px;
-	border:			1px solid #000000;
-	padding:		2px;
-	margin:			3px;
-	background-color:	#FFFFFF;
-}
-.thumb-link-container {
-	clear: both;
-}
-.thumb-link-image {
-	width:			30px;
-	height:			30px;
-	padding:		0px;
-	margin:			3px;
+
+.status-div {
+	background:	grey;
+	border:		1px solid #000000;
+	border-radius:	5px;
+	height:		40px;
+	color:		white;
+	vertical-align:	middle;
 }

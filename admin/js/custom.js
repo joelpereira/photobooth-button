@@ -1,5 +1,7 @@
 // Global variables
 var count = 0;
+var START = "Start";
+var STOP  = "Stop";
 
 
 //$(document).ready( initialPageLoad );
@@ -30,7 +32,7 @@ function getStatus(name) {
 		success: function (data) {
 			// done
 			//console.log(data);
-			updateFlipSwitch(name, data.running);
+			updateStatus(name, data.running);
 			count++;
 		},
 		error: function (xhr, ajaxOptions, thrownError) {
@@ -39,6 +41,37 @@ function getStatus(name) {
 			console.log(thrownError);
 		}
 	});
+}
+
+function restartService(name) {
+	var button = $("#" + name + "-button");
+	var status = $("#" + name + "-status");
+
+	if (button.text() == START) {
+		button.text(STOP);
+		status.css("background-color", "green");
+	} else {
+		button.text(START);
+		status.css("background-color", "red");
+	}
+}
+
+function startstopService(name) {
+	var button = $("#" + name + "-button");
+	var status = $("#" + name + "-status");
+	var s = "";
+
+	if (button.text() == START) {
+		button.text(STOP);
+		status.css("background-color", "green");
+		s = "on";
+	} else {
+		button.text(START);
+		status.css("background-color", "red");
+		S = "off";
+	}
+
+	serviceControl(name, "");
 }
 
 function serviceControl(name, status) {
@@ -73,15 +106,16 @@ function enableAllFunctions() {
 	$("#page-one :input").attr("disabled", false);
 }
 
-function updateFlipSwitch(name, status) {
-	var fs = $("#" + name + "-switch");
-	if (status) {
-		fs.val("On").flipswitch("refresh");
-	} else {
-		fs.val("Off").flipswitch("refresh");
+function updateStatus(name, status) {
+	var button = $("#" + name + "-button");
+	var div = $("#" + name + "-status");
+	if (status) {	// on
+		button.text(STOP);
+		div.css("background-color", "green");;
+	} else {	// off
+		button.text(START);
+		div.css("background-color", "red");;
 	}
-	fs.flipswitch("enable");
-	console.log(fs);
 }
 
 
