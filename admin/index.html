@@ -12,7 +12,6 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.css" type="text/css" />
-	<link rel="stylesheet" href="css/custom.css" type="text/css" />
 
 	<!-- jQuery -->
 	<script src="js/jquery-2.1.4.min.js"></script>
@@ -27,21 +26,27 @@
 	<!-- Page Content -->
 	<div data-role="main" class="ui-content" style="text-align:center">
 		<h1>PhotoBooth Admin Web Console</h1>
-		<div class="divGroup">
-			<p id="photobooth-status" class="status-div">Photo Booth Software Status</p>
-			<a href="#" id="photobooth-button" onclick="startstopService('photobooth'); return false;" class="ui-btn ui-btn-icon-left ui-icon-power">Stop</a>
-			<a href="#" onclick="restartService('photobooth'); return false;" class="ui-btn ui-btn-icon-left ui-icon-recycle">Restart</a>
-		</div>
-		<div class="divGroup">
-			<p id="button-status" class="status-div">Button Status</p>
-			<a href="#" id="button-button" onclick="startstopService('button'); return false;" class="ui-btn ui-btn-icon-left ui-icon-power">Stop</a>
-			<a href="#" onclick="restartService('button'); return false;" class="ui-btn ui-btn-icon-left ui-icon-recycle">Restart</a>
-		</div>
-		<div class="divGroup">
-			<p id="gphoto-status" class="status-div">gphoto-webui Status</p>
-			<a href="#" id="gphoto-button" onclick="startstopService('gphoto'); return false;" class="ui-btn ui-btn-icon-left ui-icon-power">Stop</a>
-			<a href="#" onclick="restartService('gphoto'); return false;" class="ui-btn ui-btn-icon-left ui-icon-recycle">Restart</a>
-		</div>
+		<form>
+			<label for="photobooth-select">Photo Booth Software Status</label>
+			<select id="photobooth-switch" name="photobooth-select" data-role="flipswitch" disabled="disabled" onchange="serviceControl('photobooth', this.value);">
+				<option>Off</option>
+				<option>On</option>
+			</select>
+		</form>
+		<form>
+			<label for="button-select">Button Status</label>
+			<select id="button-switch" name="button-select" data-role="flipswitch" disabled="disabled" onchange="serviceControl('button', this.value);">
+				<option>Off</option>
+				<option>On</option>
+			</select>
+		</form>
+		<form>
+			<label for="gphoto-select">gphoto-webui Status</label>
+			<select id="gphoto-switch" name="gphoto-select" data-role="flipswitch" disabled="disabled" onchange="serviceControl('gphoto', this.value);">
+				<option>Off</option>
+				<option>On</option>
+			</select>
+		</form>
 	</div>
 </div>
 <!-- /#page-take-picture -->
