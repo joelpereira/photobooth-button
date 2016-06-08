@@ -65,9 +65,10 @@ int main (void) {
 		// Check button status
 		if (digitalRead(BUTTON)) {
 			// press Space
-			system("xdotool key space");
+			//system("xdotool key space");
 			printf("Button pressed\n");
-			delay (500);	// mS
+			led_status = change_led(LOW);
+			delay (1000);	// mS
 		}
 
 		delay (50);	// mS
